@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+$font-family: 'Rubik', sans-serif;
+$primary-color: #2C2C2C;
+
+:root {
+box-sizing: border-box;
+font-family: $font-family;
+color: $primary-color;
+}

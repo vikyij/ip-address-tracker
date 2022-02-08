@@ -1,12 +1,14 @@
 import React from 'react';
 import Header from './components/Header'
+import Map from './components/map'
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
-    </div>
-  );
+      <Map />
+    </>
+  )
 }
 
 export default App;

@@ -1,0 +1,84 @@
+@use '../../assets/styles/colors';
+
+.headerWrapper {
+background-image: url('../../assets/images/pattern-bg.png');
+display: flex;
+flex-direction: column;
+align-items: center;
+height: 230px;
+}
+
+.title {
+  width: 282px;
+font-size: 32px;
+line-height: 30px;
+letter-spacing: -0.285714px;
+color: colors.$white-color;
+}
+
+.inputWrapper {
+  display: flex;
+}
+
+.inputStyle {
+  width: 400px;
+  height: 55px;
+  border-radius: 15px 0px 0px 15px;
+  border: none;
+  padding: 0px 15px;
+}
+
+input:focus-visible {
+  outline: 0px;
+}
+
+.searchBtn {
+  width: 55px;
+height: 55px;
+background: colors.$black-color;
+border-radius: 0px 15px 15px 0px;
+border: none;
+cursor: pointer;
+}
+
+.addressDetails {
+  width: 970px;
+  height: 95px;
+background: colors.$white-color;
+box-shadow: 0px 50px 50px -25px rgba(0, 0, 0, 0.0983665);
+border-radius: 15px;
+display: flex;
+padding: 20px;
+margin: -63px auto 0px;
+justify-content: space-evenly;
+z-index: 1;
+
+}
+
+.addressTitle {
+  font-weight: bold;
+font-size: 12px;
+line-height: 14px;
+letter-spacing: 1.75px;
+text-transform: uppercase;
+color: colors.$primary-color;
+mix-blend-mode: normal;
+opacity: 0.5;
+}
+
+.addressSubTitle {
+  font-weight: 500;
+font-size: 26px;
+line-height: 30px;
+letter-spacing: -0.232143px;
+color: colors.$primary-color;
+margin: 0px;
+}
+
+.verticalLine {
+  width: 1px;
+height: 75px;
+background: colors.$black-color;
+mix-blend-mode: normal;
+opacity: 0.15;
+}

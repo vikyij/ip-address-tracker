@@ -1,8 +1,26 @@
-import React from 'react'
 import styles from './header.module.scss'
 import RightArrowIcon from '../../assets/images/icon-arrow.svg'
+import React from 'react'
 
-const Header = () => {
+interface HeaderProps {
+  ip: string | undefined
+  isp: string | undefined
+  country: string | undefined
+  region: string | undefined
+  timezone: string | undefined
+  handleSearch: (value: string) => void
+  getIPInformation: () => void
+}
+
+const Header: React.FC<HeaderProps> = ({
+  ip,
+  isp,
+  country,
+  region,
+  timezone,
+  handleSearch,
+  getIPInformation,
+}) => {
   const {
     wrapper,
     headerWrapper,
@@ -17,6 +35,15 @@ const Header = () => {
     verticalLine,
   } = styles
 
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let value = event.target.value
+    handleSearch(value)
+  }
+
+  const handleClick = () => {
+    getIPInformation()
+  }
+
   return (
     <div className={wrapper}>
       <header className={headerWrapper}>
@@ -27,8 +54,9 @@ const Header = () => {
             name='ipAddress'
             placeholder='Search for any IP address or domain'
             className={inputStyle}
+            onChange={handleChange}
           />
-          <button className={searchBtn}>
+          <button className={searchBtn} onClick={handleClick}>
             <img src={RightArrowIcon} alt='right-arrow-icon' />
           </button>
         </div>
@@ -36,22 +64,22 @@ const Header = () => {
       <div className={addressDetails}>
         <div className={col}>
           <p className={addressTitle}>IP Address</p>
-          <h3 className={addressSubTitle}>192.212.174.101</h3>
+          <h3 className={addressSubTitle}>{ip}</h3>
         </div>
         <div className={verticalLine}></div>
         <div className={col}>
           <p className={addressTitle}>Location</p>
-          <h3 className={addressSubTitle}>Brooklyn, NY 10001</h3>
+          <h3 className={addressSubTitle}>{`${country}, ${region}`}</h3>
         </div>
         <div className={verticalLine}></div>
         <div className={col}>
           <p className={addressTitle}>Timezone</p>
-          <h3 className={addressSubTitle}>UTC -05:00</h3>
+          <h3 className={addressSubTitle}>{timezone}</h3>
         </div>
         <div className={verticalLine}></div>
         <div className={col}>
           <p className={addressTitle}>ISP</p>
-          <h3 className={addressSubTitle}>SpaceXStarlink</h3>
+          <h3 className={addressSubTitle}>{isp}</h3>
         </div>
       </div>
     </div>

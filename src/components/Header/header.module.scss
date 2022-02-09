@@ -6,6 +6,10 @@ display: flex;
 flex-direction: column;
 align-items: center;
 height: 230px;
+
+@media screen and (max-width: 500px){
+  height: 300px;
+}
 }
 
 .title {
@@ -14,10 +18,25 @@ font-size: 32px;
 line-height: 30px;
 letter-spacing: -0.285714px;
 color: colors.$white-color;
+
+@media screen and (max-width: 500px){
+  width: 100%;
+  
+  font-size: 26px;
+  text-align: center;
+  margin: 22px 0px;
+
+}
 }
 
 .inputWrapper {
   display: flex;
+
+  @media screen and (max-width: 500px){
+    width: 100%;
+    justify-content: center;
+
+  }
 }
 
 .inputStyle {
@@ -26,6 +45,10 @@ color: colors.$white-color;
   border-radius: 15px 0px 0px 15px;
   border: none;
   padding: 0px 15px;
+
+  @media screen and (max-width: 500px){
+    width: 70%;
+  }
 }
 
 input:focus-visible {
@@ -53,6 +76,22 @@ margin: -63px auto 0px;
 justify-content: space-evenly;
 z-index: 1;
 
+@media screen and (max-width: 768px){
+  width: 100%;
+  padding: 20px 0px;
+}
+
+@media screen and (max-width: 500px){
+  width: 92%;
+    flex-direction: column;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    margin: -40% auto 0px;
+    text-align: center;
+}
+
 }
 
 .addressTitle {
@@ -64,6 +103,10 @@ text-transform: uppercase;
 color: colors.$primary-color;
 mix-blend-mode: normal;
 opacity: 0.5;
+
+@media screen and (max-width: 500px){
+  font-size: 10px;
+}
 }
 
 .addressSubTitle {
@@ -73,6 +116,10 @@ line-height: 30px;
 letter-spacing: -0.232143px;
 color: colors.$primary-color;
 margin: 0px;
+
+@media screen and (max-width: 768px){
+  font-size: 20px;
+}
 }
 
 .verticalLine {
@@ -81,4 +128,10 @@ height: 75px;
 background: colors.$black-color;
 mix-blend-mode: normal;
 opacity: 0.15;
+}
+
+.hideMobile {
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 }

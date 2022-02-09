@@ -33,6 +33,7 @@ const Header: React.FC<HeaderProps> = ({
     addressTitle,
     addressSubTitle,
     verticalLine,
+    hideMobile,
   } = styles
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -66,17 +67,17 @@ const Header: React.FC<HeaderProps> = ({
           <p className={addressTitle}>IP Address</p>
           <h3 className={addressSubTitle}>{ip}</h3>
         </div>
-        <div className={verticalLine}></div>
+        <div className={`${verticalLine} ${hideMobile}`}></div>
         <div className={col}>
           <p className={addressTitle}>Location</p>
           <h3 className={addressSubTitle}>{`${country}, ${region}`}</h3>
         </div>
-        <div className={verticalLine}></div>
+        <div className={`${verticalLine} ${hideMobile}`}></div>
         <div className={col}>
           <p className={addressTitle}>Timezone</p>
           <h3 className={addressSubTitle}>{timezone}</h3>
         </div>
-        <div className={verticalLine}></div>
+        <div className={`${verticalLine} ${hideMobile}`}></div>
         <div className={col}>
           <p className={addressTitle}>ISP</p>
           <h3 className={addressSubTitle}>{isp}</h3>

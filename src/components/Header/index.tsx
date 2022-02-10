@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styles from './header.module.scss'
 import RightArrowIcon from '../../assets/images/icon-arrow.svg'
 import React from 'react'
@@ -8,8 +9,7 @@ interface HeaderProps {
   country: string | undefined
   region: string | undefined
   timezone: string | undefined
-  handleSearch: (value: string) => void
-  getIPInformation: () => void
+  handleSearch: (value: string | undefined) => void
 }
 
 const Header: React.FC<HeaderProps> = ({
@@ -19,7 +19,6 @@ const Header: React.FC<HeaderProps> = ({
   region,
   timezone,
   handleSearch,
-  getIPInformation,
 }) => {
   const {
     wrapper,
@@ -36,13 +35,15 @@ const Header: React.FC<HeaderProps> = ({
     hideMobile,
   } = styles
 
+  const [searchValue, setSearchValue] = useState<string | undefined>()
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     let value = event.target.value
-    handleSearch(value)
+    setSearchValue(value)
   }
 
   const handleClick = () => {
-    getIPInformation()
+    handleSearch(searchValue)
   }
 
   return (
@@ -56,8 +57,13 @@ const Header: React.FC<HeaderProps> = ({
             placeholder='Search for any IP address or domain'
             className={inputStyle}
             onChange={handleChange}
+            data-testid='input'
           />
-          <button className={searchBtn} onClick={handleClick}>
+          <button
+            className={searchBtn}
+            onClick={handleClick}
+            data-testid='search'
+          >
             <img src={RightArrowIcon} alt='right-arrow-icon' />
           </button>
         </div>

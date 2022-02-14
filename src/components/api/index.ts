@@ -6,9 +6,9 @@ export const getLocation = async (IPAddress?: string) => {
   let domain = IPAddress?.match(pattern)
 
   if (domain) {
-    requestUrl = `https://geo.ipify.org/api/v2/country,city?apiKey=at_VbZj5MT3jx4avUFDHcvvrCbdoZHci&domain=${IPAddress}`
+    requestUrl = `https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.REACT_APP_API_KEY}&domain=${IPAddress}`
   } else if (!domain && IPAddress) {
-    requestUrl = `https://geo.ipify.org/api/v2/country,city?apiKey=at_VbZj5MT3jx4avUFDHcvvrCbdoZHci&ipAddress=${IPAddress}`
+    requestUrl = `https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.REACT_APP_API_KEY}&ipAddress=${IPAddress}`
   } else {
     requestUrl =
       'https://geo.ipify.org/api/v2/country,city?apiKey=at_VbZj5MT3jx4avUFDHcvvrCbdoZHci'
